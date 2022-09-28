@@ -36,7 +36,7 @@ module.exports = {
             template: './index.html',
             title: 'Webpack Plugin'
         })
-    ]
-
+    ],
+    //mode: 'development'
     
 };
