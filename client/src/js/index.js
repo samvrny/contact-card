@@ -20,23 +20,6 @@ window.addEventListener('load', function () {
     document.getElementById('dogThumbnail').src = Dog;
 });
 
-//install button 
-const installBtn = document.getElementById('installBtn');
-
-window.addEventListener('beforeinstallprompt', (event) => {
-    event.preventDefault();
-    installBtn.style.visibility = 'visible';
-    installBtn.addEventListener('click', () => {
-        event.prompt();
-        installBtn.setAttribute('disabled', true);
-        installBtn.textContent = 'Installed!';
-    });
-});
-
-window.addEventListener('appinstalled', (event) => {
-    console.log('appinstalled', event);
-});
-
 // Form functionality
 const form = document.getElementById("formToggle");
 const newContactButton = document.getElementById("new-contact");
@@ -115,3 +98,21 @@ if('serviceWorker' in navigator) {
         navigator.serviceWorker.register('./service-worker.js');
     })
 };
+
+//install button 
+const installBtn = document.getElementById('installBtn');
+
+window.addEventListener('beforeinstallprompt', (event) => {
+    event.preventDefault();
+    installBtn.style.visibility = 'visible';
+    installBtn.addEventListener('click', () => {
+        console.log('APPLE')
+        event.prompt();
+        installBtn.setAttribute('disabled', true);
+        installBtn.textContent = 'Installed!';
+    });
+}); //an if/else statement in this function to handle the install button in a more user freindly way should be added later.
+
+window.addEventListener('appinstalled', (event) => {
+    console.log('appinstalled', event);
+});
